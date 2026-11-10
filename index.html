@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1d2b49">
+  <title>Cuestionario Sistemas 2026 | Estudio</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="preguntas.js" defer></script>
+  <script src="respuestas.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Inicio">
+        <span class="brand-mark" aria-hidden="true">Q</span>
+        <span>Cuestionario <span class="brand-year">2026</span></span>
+      </a>
+      <span class="save-note"><span class="status-dot"></span> Estudio a tu ritmo</span>
+    </header>
+
+    <main>
+      <section class="intro">
+        <p class="eyebrow">PRUEBA ACADÉMICA · SISTEMAS INFORMÁTICOS</p>
+        <h1>Un paso a la vez.</h1>
+        <p>Practica, comprueba lo que sabes y descubre tu resultado al final.</p>
+      </section>
+
+      <section id="setup-screen" class="setup-card" aria-labelledby="setup-title">
+        <div class="section-heading">
+          <span class="step-mark">01</span>
+          <div>
+            <p class="eyebrow">PREPARA TU SESIÓN</p>
+            <h2 id="setup-title">¿Qué quieres estudiar?</h2>
+          </div>
+        </div>
+
+        <label class="field-label" for="subject-select">Materia</label>
+        <select id="subject-select" class="form-control">
+          <option value="GENERAL">Todas las materias · modo general</option>
+        </select>
+
+        <label class="field-label" for="length-select">Cantidad de preguntas</label>
+        <select id="length-select" class="form-control">
+          <option value="10">10 preguntas · sesión rápida</option>
+          <option value="20" selected>20 preguntas · sesión recomendada</option>
+          <option value="40">40 preguntas · sesión completa</option>
+          <option value="all">Todas las preguntas de la selección</option>
+        </select>
+
+        <label class="shuffle-control" for="shuffle-toggle">
+          <input id="shuffle-toggle" type="checkbox" checked>
+          <span class="toggle-copy">
+            <strong>Mezclar preguntas</strong>
+            <small>En cada sesión cambia el orden.</small>
+          </span>
+        </label>
+
+        <div class="setup-summary">
+          <span class="summary-icon" aria-hidden="true">✦</span>
+          <span id="selection-summary">828 preguntas disponibles en 21 materias.</span>
+        </div>
+        <button id="start-button" class="button button-primary button-wide" type="button">
+          Empezar a estudiar <span aria-hidden="true">→</span>
+        </button>
+      </section>
+
+      <section id="quiz-screen" class="quiz-card" aria-label="Sesión de estudio" hidden>
+        <div class="quiz-topline">
+          <button id="exit-button" class="text-button" type="button">← Cambiar sesión</button>
+          <span id="session-subject" class="session-subject"></span>
+        </div>
+
+        <div class="progress-heading">
+          <span id="question-counter">Pregunta 1 de 20</span>
+          <span id="progress-percent">0%</span>
+        </div>
+        <div class="progress-track" role="progressbar" aria-label="Progreso de la sesión" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <span id="session-progress"></span>
+        </div>
+
+        <div class="question-meta">
+          <span id="question-type" class="type-badge"></span>
+          <span id="question-number" class="question-number"></span>
+        </div>
+        <article class="question-card" aria-live="polite">
+          <h2 id="question-prompt"></h2>
+          <div id="answer-area"></div>
+          <div id="feedback" class="feedback" role="status" hidden></div>
+        </article>
+
+        <div class="card-actions">
+          <div id="self-grade" class="self-grade" hidden>
+            <p>Compara tu respuesta con la referencia:</p>
+            <div class="grade-buttons">
+              <button id="mark-correct" class="button button-correct" type="button">La acerté</button>
+              <button id="mark-review" class="button button-review" type="button">La repasaré</button>
+            </div>
+          </div>
+          <button id="check-button" class="button button-primary button-wide" type="button">Comprobar respuesta</button>
+          <p id="locked-hint" class="locked-hint">Responde para continuar; no podrás saltar preguntas.</p>
+        </div>
+      </section>
+
+      <section id="result-screen" class="result-card" aria-labelledby="result-title" hidden>
+        <div class="result-icon" aria-hidden="true">✦</div>
+        <p class="eyebrow">SESIÓN COMPLETADA</p>
+        <h2 id="result-title">¡Buen trabajo!</h2>
+        <p id="result-summary" class="result-summary"></p>
+        <div class="score-card">
+          <strong id="score-percent">0%</strong>
+          <span id="score-fraction">0 / 0 correctas</span>
+        </div>
+        <div class="result-stats">
+          <div><strong id="correct-count">0</strong><span>Acertadas</span></div>
+          <div><strong id="review-count">0</strong><span>Para repasar</span></div>
+          <div><strong id="finished-count">0</strong><span>Respondidas</span></div>
+        </div>
+        <p class="score-note">Las preguntas abiertas y los ejercicios prácticos se califican con tu autoevaluación.</p>
+        <button id="restart-button" class="button button-primary button-wide" type="button">Estudiar otra sesión <span aria-hidden="true">→</span></button>
+      </section>
+
+      <p class="disclaimer"><strong>828 preguntas · 21 materias.</strong> Las preguntas de desarrollo incluyen respuestas modelo; compara tu respuesta y autoevalúate con honestidad.</p>
+    </main>
+    <footer class="page-footer">Hecho para estudiar mejor <span aria-hidden="true">✦</span></footer>
+  </div>
+</body>
+</html>
